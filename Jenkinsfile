@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        imagename = 'jeenaprem/devops-integration'
+        imagename = 'jeenaprem/devops-integration1'
         registryCredential = 'github-username-pwd'
         dockerImage = ''
     }
@@ -18,7 +18,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    bat 'docker build -t jeenaprem/devops-integration .'
+                    bat 'docker build -t jeenaprem/devops-integration1 .'
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps{
                 script{
                     docker.withRegistry( '', registryCredential )   {
-                    bat 'docker push jeenaprem/devops-integration'
+                    bat 'docker push jeenaprem/devops-integration1'
                     }
                 }
             }
